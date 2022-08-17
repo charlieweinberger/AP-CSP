@@ -1,7 +1,10 @@
+from datetime import datetime
+
+CURRENT_MONTH = datetime.now().month
+CURRENT_YEAR = datetime.now().year
+
 DAYS_IN_YEAR = 365.26
 MONTHS_IN_YEAR = 12
-CURRENT_YEAR = 2022
-CURRENT_MONTH = 8
 
 planet_data = {
     'Mercury': [58.6, 0.241],
@@ -28,3 +31,6 @@ for planet, data in planet_data.items():
     days  = round(earth_days  / data[0], 2)
     years = round(earth_years / data[1], 2)
     print(f"Your age on {planet} is approximately {days} days, or {years} years.")
+
+# add leap years
+# add CURRENT_DAY = datetime.now().day to make more accurate
