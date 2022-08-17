@@ -8,22 +8,19 @@ birth_year = int(age[2])
 earth_years = 2022 - birth_year + ((8 - birth_month) * 10 / 12) / 10
 earth_days = birth_day + 365.26 * earth_years
 
-print(earth_years)
-print(earth_days)
-
 planet_data = {
-    'Mercury': [58.6, 87.97],
-    'Venus': [],
-    'Earth': [],
-    'Mars': [],
-    'Jupiter': [],
-    'Saturn': [],
-    'Uranus': [],
-    'Neptune': []
+    'Mercury': [58.6, 0.241],
+    'Venus': [243, 0.615],
+    'Earth': [0.99, 1],
+    'Mars': [1.03, 1.88],
+    'Jupiter': [0.41, 11.86],
+    'Saturn': [0.45, 29.46],
+    'Uranus': [0.72, 84.01],
+    'Neptune': [0.67, 164.79],
+    'Pluto': [6.39, 248.59]
 }
 
-mercury_days = round(earth_days / 58.6, 2)
-mercury_years = round(earth_years * 365.26 / 87.97, 2)
-
-print(mercury_days)
-print(mercury_years)
+for planet, data in planet_data.items():
+    days  = round(earth_days  / data[0], 2)
+    years = round(earth_years / data[1], 2)
+    print(f"Your age on {planet} is {days} days, or {years} years.")
