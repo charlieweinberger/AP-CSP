@@ -1,7 +1,7 @@
 #  Tandon: Build a Punnet Square generator, where a user can enter two parents alleles and it will output a punnet square with the different possibilities for the children of those two parents.
 
-parent_1_allele = input("What is your first parent's allele? ") # AA
-parent_2_allele = input("What is your second parent's allele? ") # Aa
+parent_1_allele = input("What is your first parent's allele? ")
+parent_2_allele = input("What is your second parent's allele? ")
 
 punnet_squares = [
     parent_1_allele[0] + parent_2_allele[0],
