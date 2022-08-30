@@ -7,6 +7,10 @@ class InputPlayer():
     
     def turn(self):
         
+        if len(self.hand) == 0:
+            self.game.winner = 3 - self.player_number
+            return
+
         card = input(f"\nYour hand: {self.hand} \nWhat card do you want to play? ")
         if card not in self.hand: return
         self.hand.remove(card)

@@ -4,11 +4,20 @@ from random_player import *
 from max_player import *
 from charlie_player import *
 
-players = [InputPlayer(1), CharliePlayer(2)]
-nn = ninetyNine(players)
-nn.set_players()
-nn.deal(10)
+winners = {1: 0, 2: 0}
 
-nn.run()
+for _ in range(100000):
 
-print(f"\nWinner: Player {nn.winner}!")
+    players = [MaxPlayer(1), CharliePlayer(2)]
+    nn = ninetyNine(players, show=False)
+    nn.set_players()
+    nn.deal(10)
+
+    nn.run()
+
+    winners[nn.winner] += 1
+
+print(winners)
+print(f'Win percent: {100 * winners[2] / (winners[1] + winners[2])}%')
+
+# wins ~85% percent of time against random and max player

@@ -1,3 +1,5 @@
+import random
+
 class CharliePlayer():
     
     def __init__(self, player_number):
@@ -7,12 +9,16 @@ class CharliePlayer():
 
     def turn(self):
         
+        if len(self.hand) == 0:
+            self.game.winner = 3 - self.player_number
+            return
+
         max_card = ''
         max_value = 0
 
         for card in self.hand:
             
-            if card in ['Jack', 'Queen', 'King'] and self.game.total < 90:
+            if card in ['10', 'Jack', 'Queen', 'King'] and self.game.total < 90:
                 max_card = card
                 max_value = 10
                 break
@@ -32,7 +38,7 @@ class CharliePlayer():
             elif max_card in ['Jack', 'Queen', 'King']: max_value = 10
             else: max_value = int(max_card)
 
-        print(f"\nOpponent hand: {self.hand}\nYour opponent has played a {max_card}.")
+        if self.game.show: print(f"\nOpponent hand: {self.hand}\nYour opponent has played a {max_card}.")
 
         self.hand.remove(max_card)
         return max_value
