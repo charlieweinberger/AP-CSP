@@ -2,9 +2,10 @@ import random
 
 class CharliePlayer():
     
-    def __init__(self, player_number):
+    def __init__(self):
         self.hand = []
-        self.player_number = player_number
+        self.name = 'charlie'
+        self.player_number = None
         self.game = None
 
     def turn(self):

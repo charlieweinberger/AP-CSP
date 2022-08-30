@@ -25,7 +25,11 @@ class ninetyNine():
         while self.winner == None:
             for player in self.players:
                 
-                turn = player.turn()
+                turn = ''
+
+                while type(turn) != int and self.winner == None:
+                    turn = player.turn()
+
                 if self.winner != None: break
                 self.total += turn
                 
@@ -34,3 +38,15 @@ class ninetyNine():
                 if self.total > 99:
                     self.winner = 3 - player.player_number
                     break
+        
+        if self.show:
+            
+            human_playing = False
+            
+            for player in self.players:
+                if player.name == 'input':
+                     print(f'\nYou {"win" if self.winner == player.player_number else "lose"}!')
+                     human_playing = True
+            
+            if not human_playing:
+                print(f'\nWinner: player {self.winner}!\n')
