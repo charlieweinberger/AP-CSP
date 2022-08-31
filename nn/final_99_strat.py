@@ -2,18 +2,24 @@ import random
 
 computerList = ['A', 2, 5, 8, 10]
 
+def getRandomElem():
+    return random.choice(1 if card == 'A' else card for card in computerList)
+
+def returnCard(pot, card):
+    if card == 1 or card == 11: computerList.remove('A')
+    else: computerList.remove(card)
+    return pot + card
+
 def computerTurn(pot):
     
-    random_elem = lambda: random.choice([elem for elem in computerList if type(elem) == int])
-
     if pot >= 99:
-        return pot + random_elem()
+        return returnCard(pot, getRandomElem())
 
     if 'A' in computerList and (pot == 87 or pot == 88):
-        return pot + 11
+        return returnCard(pot, 11)
         
     if 'A' in computerList and pot == 98:
-        return pot + 1
+        return returnCard(pot, 1)
     
     surviving_cards = []
 
@@ -26,11 +32,6 @@ def computerTurn(pot):
             surviving_cards.append(1)
 
     if len(surviving_cards) == 0:
-        return pot + random_elem()
+        return returnCard(pot, getRandomElem())
     
-    return pot + max(surviving_cards)
-
-# testing
-
-for n in range(86, 101):
-    print(f'{n}: {computerTurn(n)}')
+    return returnCard(pot, max(surviving_cards))
