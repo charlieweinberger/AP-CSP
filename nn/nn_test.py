@@ -2,14 +2,15 @@ from nn import *
 from input_player import *
 from random_player import *
 from max_player import *
-from charlie_player import *
+from charlie_player_v1 import *
+from charlie_player_v2 import *
 
 # a player can't play itself (aka random vs random doesn't work)
 
-players_names = ['max', 'charlie'] # input, random, max, charlie
+players_names = ['random', 'charlie v2'] # input, random, max, charlie v1, charlie v2
 
 human_playing = 'input' in players_names
-num_games = 1 if human_playing else 100000
+num_games = 1 if human_playing else 10000
 winners = {player:0 for player in players_names}
 
 for i in range(num_games):
@@ -17,10 +18,11 @@ for i in range(num_games):
     players = []
 
     for player in players_names:
-        if player == 'input':   players.append(InputPlayer())
-        if player == 'random':  players.append(RandomPlayer())
-        if player == 'max':     players.append(MaxPlayer())
-        if player == 'charlie': players.append(CharliePlayer())
+        if player == 'input':      players.append(InputPlayer())
+        if player == 'random':     players.append(RandomPlayer())
+        if player == 'max':        players.append(MaxPlayer())
+        if player == 'charlie v1': players.append(CharliePlayerV1())
+        if player == 'charlie v2': players.append(CharliePlayerV2())
 
     if i % 2 == 1:
         players = players[::-1]
