@@ -10,7 +10,7 @@ from charlie_player_v2 import *
 players_names = ['random', 'charlie v2'] # input, random, max, charlie v1, charlie v2
 
 human_playing = 'input' in players_names
-num_games = 1 if human_playing else 10000
+num_games = 1 if human_playing else 100000
 winners = {player:0 for player in players_names}
 
 for i in range(num_games):

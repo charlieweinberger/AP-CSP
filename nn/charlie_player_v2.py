@@ -14,8 +14,8 @@ class CharliePlayerV2():
             self.game.winner = 3 - self.player_number
             return
 
-        if 'Ace' in self.hand and (self.game.total == 88 or self.game.total == 98):
-            return self.end_turn('Ace', 99 - self.game.total)
+        if 'Ace' in self.hand and 87 <= self.game.total <= 88:
+            return self.end_turn('Ace', 11)
 
         return self.get_max()
 
