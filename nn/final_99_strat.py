@@ -1,19 +1,19 @@
 import random
 
-computerList = []
+computerList = ['A', 2, 5, 8, 10]
 
 def computerTurn(pot):
     
     random_elem = lambda: random.choice([elem for elem in computerList if type(elem) == int])
 
     if pot >= 99:
-        return random_elem()
+        return pot + random_elem()
 
     if 'A' in computerList and (pot == 87 or pot == 88):
-        return 11
+        return pot + 11
         
     if 'A' in computerList and pot == 98:
-        return 1
+        return pot + 1
     
     surviving_cards = []
 
@@ -26,6 +26,11 @@ def computerTurn(pot):
             surviving_cards.append(1)
 
     if len(surviving_cards) == 0:
-        return random_elem()
+        return pot + random_elem()
     
-    return max(surviving_cards)
+    return pot + max(surviving_cards)
+
+# testing
+
+for n in range(86, 101):
+    print(f'{n}: {computerTurn(n)}')
