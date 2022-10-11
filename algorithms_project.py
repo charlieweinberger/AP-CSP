@@ -11,11 +11,41 @@ for assignment in new_data:
 
 # FIRST, WRITE A COMMENT DESCRIBING YOUR ALGORITHM. HOW WILL YOUR ALGORITHM WORK? WHAT IS THE HEURISTIC YOU ARE USING? WHAT HAPPENS WHEN YOU HAVE TOO MUCH HOMEWORK AND NOT ENOUGH MINUTES? WHAT HAPPENS WHEN YOU HAVE ENOUGH MINUTES TO COMPLETE AN ASSIGNMENT HALFWAY, BUT NOT COMPLETELY? WALK ME THROUGH AN EXAMPLE WITH A FEW ASSIGNMENTS.  
 
+"""
+
+My algorithm takes in a list of assignments and ranks them based on their priority, and gives you the assignments with the highest priority that you have time for in a day. If you have too many assignments, the algorithm will tell you to do the assignments after a certain number of days (default is 3 days), because you will probably have more time by then. The algorithm assumes you must finish every assignment in one sitting.
+
+"""
+
 # NEXT, WRITE YOUR ALGORITHM OUT IN PSEUDOCODE.
 
-# FINALLY, IMPLEMENT YOUR ALGORITHM! IF YOU FINISH, THINK ABOUT HOW TO OPTIMIZE YOUR ALGORITHM! MAYBE ADD A "I DONT WANT TO" OPTION TO PUSH YOUR HOMEWORK TO THE NEXT DAY OR A "STAY UP LATE" TO FINISH A PRIORITY ASSIGNMENT.
+"""
 
-# today
+Loop through days ahead
+
+    Get today's date
+    set current date to today's date plus days ahead
+    Ask the user how much time they have to do homework on the current date
+
+    Loop through assignments
+
+        If there is time to do the current assignemnt
+            
+            Add current assignment to list of assignments to do on the current date
+            add current assignment time to total time spent
+            Remove current assignment from list of assignments
+
+    If there are no more assignments to do
+        end the algorithm
+    otherwise
+        print every assignment to do on the current date
+
+If there are still assignments left after looping through all days ahead
+    print every remaining assignment
+
+"""
+
+# FINALLY, IMPLEMENT YOUR ALGORITHM! IF YOU FINISH, THINK ABOUT HOW TO OPTIMIZE YOUR ALGORITHM! MAYBE ADD A "I DONT WANT TO" OPTION TO PUSH YOUR HOMEWORK TO THE NEXT DAY OR A "STAY UP LATE" TO FINISH A PRIORITY ASSIGNMENT.
 
 def assignment_planner(input_data, days_ahead):
 
@@ -55,4 +85,4 @@ def assignment_planner(input_data, days_ahead):
     
     print('')
 
-assignment_planner(new_data, 2)
+assignment_planner(new_data, 4)
