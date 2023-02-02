@@ -1,6 +1,3 @@
-import enchant
-d = enchant.Dict("en_US")
-
 alphabet = 'abcdefghijklmnopqrstuvwxyz'
 
 def decrypt_text(text, i):
@@ -25,24 +22,8 @@ def decrypt_caesar_cipher(text, key=None):
     
     if key != None:
         return decrypt_text(text, key)
-    
     else:
-    
-        strings = []
-        for i in range(26):
-
-            text = decrypt_text(text, i)
-            word_is_real = True
-
-            for word in text.split(" "):
-                if not d.check(word):
-                    word_is_real = False
-                    break
-
-            if word_is_real:
-                strings.append(text)
-        
-        return strings
+        return [decrypt_text(text, i) for i in range(26)]
 
 print(decrypt_caesar_cipher("Kvu'a qbknl h ivvr if paz jvcly", 7))
 print(decrypt_caesar_cipher("KRPCFIJNZWK"))
