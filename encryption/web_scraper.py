@@ -2,15 +2,33 @@ import requests
 import string
 from collections import Counter
 from bs4 import BeautifulSoup
+from pathlib import Path
 
-url = "https://www.bbc.com/news"
+#########
+
+# url = "https://www.bbc.com/news"
+# response = requests.get(url)
+# siteHTML = response.text
+
+# soup = BeautifulSoup(siteHTML, 'html.parser')
+# articles = soup.findAll('a')
+
+# for article in articles:
+#     link = article.get("href")
+#     if link.startswith("/news/world/"):
+#         print(link)
+
+#########
+
+url = "https://www.pusd.us/phs"
 response = requests.get(url)
-siteHTML = response.text
+print(response.text)
 
-soup = BeautifulSoup(siteHTML, 'html.parser')
-articles = soup.findAll('a')
+html = response.text
+soup = BeautifulSoup(html, 'html.parser')
+elements = soup.findAll("span")
 
-for article in articles:
-    link = article.get("href")
-    if link.startswith("/news/world/"):
-        print(link)
+for element in elements:
+    content = element.get_text()
+    if str.__contains__(content, "Bulldog"):
+        print(content)
