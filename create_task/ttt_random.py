@@ -47,17 +47,16 @@ while winner == None:
         print("Invalid move!")
     
     winner = check_for_winner(board)
-    
-    if winner == None:
+    if winner: break
         
-        available_moves = []
-        for i in range(9):
-            if board[i] == "-":
-                available_moves.append(i)
+    available_moves = []
+    for i in range(9):
+        if board[i] == "-":
+            available_moves.append(i)
 
-        random_index = random.choice(available_moves)
-        board[random_index] = "O"
-        winner = check_for_winner(board)
+    random_index = random.choice(available_moves)
+    board[random_index] = "O"
+    winner = check_for_winner(board)
 
 print_board(board)
 

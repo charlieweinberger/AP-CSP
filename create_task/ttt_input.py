@@ -22,9 +22,9 @@ def check_for_winner(input_board):
 
 def print_board(input_board):
     print("")
-    print(f"{input_board[0]}|{input_board[1]}|{input_board[2]}")
-    print(f"{input_board[3]}|{input_board[4]}|{input_board[5]}")
-    print(f"{input_board[6]}|{input_board[7]}|{input_board[8]}")
+    print(input_board[0] + "|" + input_board[1] + "|" + input_board[2])
+    print(input_board[3] + "|" + input_board[4] + "|" + input_board[5])
+    print(input_board[6] + "|" + input_board[7] + "|" + input_board[8])
     print("")
 
 players = ["X", "O"]
