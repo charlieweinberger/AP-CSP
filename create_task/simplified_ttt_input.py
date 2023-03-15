@@ -17,14 +17,18 @@ def check_for_winner(input_board):
 
     for row in all_combinations:
         if row[0] != "-" and row[0] == row[1] and row[1] == row[2]:
-            return row[0]
+            if row[0] == "X":
+                print("Player X wins!")
+                exit()
+            else:
+                print("Player O wins!")
+                exit()
 
     # Check for a tie
 
     if "-" not in input_board:
-        return "tie"
-    else:
-        return None
+        print("Tie game!")
+        exit()
 
 # Run game
 
@@ -32,30 +36,17 @@ board = ["-", "-", "-", "-", "-", "-", "-", "-", "-"]
 
 while True:
 
-    # Loop through each player
-
     for player in ["X", "O"]:
 
-        # Prompt the player to choose a move
-
-        print("You are player " + player + ".\n")
-
+        print("\nYou are player " + player + ".\n")
+        
         print(board[0] + "|" + board[1] + "|" + board[2])
         print(board[3] + "|" + board[4] + "|" + board[5])
         print(board[6] + "|" + board[7] + "|" + board[8])
-
+       
         print("\nWhere do you want to move? Input a number between 1 and 9.")
-
-        # Execute the player's move
 
         move_index = int(input("Your move: ")) - 1
         board[move_index] = player
 
-        # Check for a winner
-
-        winner = check_for_winner(board)
-
-        if winner == player:
-            print("Player " + player + " wins!")
-        elif winner == "tie":
-            print("Tie game!")
+        check_for_winner(board)
