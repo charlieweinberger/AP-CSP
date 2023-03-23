@@ -15,12 +15,11 @@ def check_for_winner(input_board):
 
     # Check for a winner
 
-    for row in all_combinations:
-        if row[0] != "-" and row[0] == row[1] and row[1] == row[2]:
-            if row[0] == "X":
-                return "Player X wins!"
-            else:
-                return "Player O wins!"
+    for combination in all_combinations:
+        if combination[0] == "X" and combination[1] == "X" and combination[2] == "X":
+            return "Player X wins!"
+        elif combination[0] == "O" and combination[1] == "O" and combination[2] == "O":
+            return "Player O wins!"
 
     # Check for a tie
 
@@ -51,5 +50,6 @@ while True:
         winner = check_for_winner(board)
         
         if winner != None:
+            print("")
             print(winner)
             exit()
