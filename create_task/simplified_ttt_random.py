@@ -18,11 +18,10 @@ def check_for_winner(input_board):
     # Check for a winner
 
     for row in all_combinations:
-        if row[0] != "-" and row[0] == row[1] and row[1] == row[2]:
-            if row[0] == "X":
-                return "Player X wins!"
-            else:
-                return "Player O wins!"
+        if row[0] == "X" and row[1] == "X" and row[2] == "X":
+            return "Player X wins!"
+        elif row[0] == "X" and row[1] == "X" and row[2] == "X":
+            return "Player O wins!"
 
     # Check for a tie
 
