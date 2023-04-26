@@ -36,13 +36,13 @@ while True:
 
     for player in ["X", "O"]:
 
-        print("\nYou are player " + player + ".\n")
+        print("You are player " + player + ".")
         
         print(board[0] + "|" + board[1] + "|" + board[2])
         print(board[3] + "|" + board[4] + "|" + board[5])
         print(board[6] + "|" + board[7] + "|" + board[8])
        
-        print("\nWhere do you want to move? Input a number between 1 and 9.")
+        print("Where do you want to move? Input a number between 1 and 9.")
 
         move_index = int(input("Your move: ")) - 1
         board[move_index] = player
@@ -50,6 +50,5 @@ while True:
         winner = check_for_winner(board)
         
         if winner != None:
-            print("")
             print(winner)
             exit()
